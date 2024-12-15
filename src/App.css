@@ -57,12 +57,20 @@ body {
 
 .contenedor_inputs > button {
   box-shadow: 4px 4px 4px #b9a85f, -4px -4px 4px #f5e396;
-  background-color: #b79522;
-  color: white;
+  box-sizing: content-box;
   border: none;
+  border-bottom: 3px solid #7c6519;
+  background-color: #b79522;
   height: 40px;
   width: 120px;
   border-radius: 2em;
+  font-size: 1.7em;
+}
+
+.contenedor_inputs > button:active {
+  /*box-shadow: inset 3px 3px 3px #b9a85f, inset -3px -3px 3px #f5e396;*/
+  box-shadow: none;
+  border: none;
 }
 
 .contenedor_listas {
@@ -95,10 +103,13 @@ body {
 }
 
 .tarea_card {
-  margin-left: 2em;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 
 .tarea_card_info {
@@ -108,4 +119,18 @@ body {
 .tarea_card_info > p {
   margin: 0;
   margin: 5px 15px 5px 15px;
+}
+
+.tarea_card_actions {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: center;
+}
+
+.tarea_card_actions > img {
+  /*Limpiar por defecto del navegador*/
+  height: 30px;
+  width: 30px;
+  margin-left: 20px;
 }

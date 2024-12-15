@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import "./App.css";
 import Tarea from "./models/Tarea";
@@ -98,18 +99,20 @@ const ListaTares = ({ tareas, completar, eliminar, cabecera, completadas }) => {
 const TareaCard = ({ tarea, completar, eliminar }) => {
   return (
     <div className="tarea_card" key={tarea.id}>
-      {!tarea.completado && (
-        <div onChange={completar}>
-          <input type="checkbox"></input>
-        </div>
-      )}
       <div className="tarea_card_info">
         <p>{tarea.titulo}</p>
         <p>{tarea.descripcion}</p>
-        <p>Quedan {tarea.diasRestantes} dias</p>
+        {!tarea.completado && (
+          <p style={tarea.diasRestantes <= 0 ? { color: "red" } : {}}>
+            Quedan {tarea.diasRestantes} dias
+          </p>
+        )}
       </div>
-      <div>
-        <button onClick={eliminar}>Eliminar</button>
+      <div className="tarea_card_actions">
+        {!tarea.completado && (
+          <img src="src\assets\task.svg" onClick={completar} />
+        )}
+        <img src="src/assets/delete.svg" onClick={eliminar} />
       </div>
     </div>
   );
