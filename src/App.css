@@ -95,6 +95,7 @@ body {
   box-shadow: #ab9c58 3.2px 3.2px 8px 0px inset,
     #fff4c5 -3.2px -3.2px 8px 0px inset;
   border-radius: 2em;
+  overflow: hidden;
 }
 
 .contenedor_lista > h1 {
